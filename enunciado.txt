@@ -1,0 +1,9 @@
+- Validar usuario
+- Validar contraseña
+- Formulario de registro
+	- Validar edad numerico mayor a 0.
+	- Validar los campos de password sean iguales.
+	- Validar campos obligatorios.
+	- Valide el campo captcha
+- Uso de flexbox + CSS
+- Aplicar bootstrap
