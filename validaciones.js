@@ -1,11 +1,11 @@
-function nuevoUsuario(){   
-
+function registro(){   
     let nuevoUsuario = document.getElementById("nuevoUsuario").value;
     let apellido = document.getElementById("apellido").value;
     let nombre = document.getElementById("nombre").value;
     let edad = document.getElementById("edad").value;
     let nuevaPass = document.getElementById("nuevaPass").value;
     let verificacionPass = document.getElementById("verificacionPass").value;
+
 
      if(nuevoUsuario.length == 0 || nombre.length == 0 || apellido.length == 0){
         Swal.fire({
@@ -41,12 +41,35 @@ function nuevoUsuario(){
         setTimeout(() => {
             window.location.href = "https://aulavirtual.instituto.ort.edu.ar/";
         }, 3000);
-
-       
     
     }
 }
 
-let boton = document.getElementById("botonRegistro")
+const valorUsuario = nuevoUsuario;
+const valorClave = nuevaPass;
 
-boton.addEventListener("click", nuevoUsuario)
+let boton = document.getElementById("botonRegistro");
+
+boton.addEventListener("click", registro);
+
+
+function ingreso(){
+    let usuarioIngreso = document.getElementById("usuarioIngreso").value;
+    let passwordIngreso = document.getElementById("passwordIngreso").value;
+
+    if(usuarioIngreso == valorUsuario && passwordIngreso == valorClave){
+        Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'Bienvenido de vuelta!!!',
+            showConfirmButton: false,
+            timer: 1500
+        })
+        /*setTimeout(() => {
+            window.location.href = "";
+        }, 3000);*/
+    }
+}
+
+let botonIngreso = document.getElementById("botonRegistro")
+botonIngreso.addEventListener("click", ingreso)
