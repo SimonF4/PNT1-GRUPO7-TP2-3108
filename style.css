@@ -1,3 +1,70 @@
-.password{
-    
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    background-color: #219ebc;
+}
+
+/* INDEX*/
+.cuerpo{
+    border-radius: 20px;
+    margin: 20% 20%;
+    display: flex;
+    flex-direction: column;
+    background-color: #d9d9d9;
+    align-items: center;
+    padding: 50px 0px;
+    text-align: end;
+}
+
+
+.img{
+    width: 300px;
+    padding: 20px;
+}
+
+.boton{    
+    background-color: #adb5bd;
+    color: black;
+    border: none; 
+    justify-content: center;
+    padding: 20px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    align-self: center;
+    justify-content: center;
+}
+
+/*REGISTRO* .pagReg{
+    border-radius: 20px;
+    margin: 20% 20%;
+    display: flex;
+    flex-direction: column;
+    background-color: #d9d9d9;
+    align-items: center;
+    padding: 50px 0px;   
+}
+
+}*/
+.pagReg{
+    display: flex;
+    margin: 20% 20%;
+    border-radius: 20px;
+    flex-direction: column;
+    background-color: #d9d9d9;
+    align-items: center;
+    padding: 50px 0px;
+}
+
+.lista{
+    height: 40px;
+    width: 100%;
+    margin-bottom: 30px;
 }

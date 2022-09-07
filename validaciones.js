@@ -1,11 +1,11 @@
-function registro(){   
+function nuevoUsuario(evento){   
+    evento.preventDefault();
     let nuevoUsuario = document.getElementById("nuevoUsuario").value;
     let apellido = document.getElementById("apellido").value;
     let nombre = document.getElementById("nombre").value;
     let edad = document.getElementById("edad").value;
     let nuevaPass = document.getElementById("nuevaPass").value;
     let verificacionPass = document.getElementById("verificacionPass").value;
-
 
      if(nuevoUsuario.length == 0 || nombre.length == 0 || apellido.length == 0){
         Swal.fire({
@@ -31,45 +31,35 @@ function registro(){
         })
         return false;
     }  else {
-        Swal.fire({
-            position: 'top-center',
-            icon: 'success',
-            title: 'Se ha completado el registro!!!',
-            showConfirmButton: false,
-            timer: 1500
-        })
-        setTimeout(() => {
-            window.location.href = "https://aulavirtual.instituto.ort.edu.ar/";
-        }, 3000);
+        alert("registro completado")
+        this.submit();
+      
+    } 
     
-    }
+    
 }
 
-const valorUsuario = nuevoUsuario;
-const valorClave = nuevaPass;
 
-let boton = document.getElementById("botonRegistro");
+let boton = document.getElementById("form")
 
-boton.addEventListener("click", registro);
+boton.addEventListener("submit", nuevoUsuario)
 
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+function login() {
+var a = getParameterByName('txt1');
+var b = getParameterByName('txt2'); 
 
-function ingreso(){
-    let usuarioIngreso = document.getElementById("usuarioIngreso").value;
-    let passwordIngreso = document.getElementById("passwordIngreso").value;
-
-    if(usuarioIngreso == valorUsuario && passwordIngreso == valorClave){
-        Swal.fire({
-            position: 'top-center',
-            icon: 'success',
-            title: 'Bienvenido de vuelta!!!',
-            showConfirmButton: false,
-            timer: 1500
-        })
-        /*setTimeout(() => {
-            window.location.href = "";
-        }, 3000);*/
-    }
+ if (document.getElementById("usuario").value == a && 
+ document.getElementById("contraseña").value == b && document.getElementById("contraseña").value.length != 0) {
+    alert("Bienvenido")
 }
 
-let botonIngreso = document.getElementById("botonRegistro")
-botonIngreso.addEventListener("click", ingreso)
+else {
+    alert("credenciales invalidas");
+}
+}
