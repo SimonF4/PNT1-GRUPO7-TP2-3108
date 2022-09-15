@@ -68,3 +68,10 @@ body{
     width: 100%;
     margin-bottom: 30px;
 }
+.validado{ 
+    display: none;
+}
+.novalidado {
+    display: block;
+    color: red;
+}

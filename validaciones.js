@@ -6,18 +6,18 @@ function nuevoUsuario(evento){
     let edad = document.getElementById("edad").value;
     let nuevaPass = document.getElementById("nuevaPass").value;
     let verificacionPass = document.getElementById("verificacionPass").value;
-
-     if(nuevoUsuario.length == 0 || nombre.length == 0 || apellido.length == 0){
+    let captcha = document.getElementById("captcha").value;
+     if(nuevoUsuario.length == 0 || nombre.length == 0 || apellido.length == 0 || nuevaPass.length == 0){
         Swal.fire({
             title: 'Error!',
             text: 'No puedes dejar campos vacios',
             icon: 'error',
             timer: 1500
         })    
-    }else if(nuevaPass != verificacionPass ){
+    }else if(nuevaPass != verificacionPass || validarCaracteres() == false){
         Swal.fire({
             title: 'Error!',
-            text: 'Las contraseñas no son iguales',
+            text: 'Las contraseñas no son iguales y/o tiene menos de 8 caracteres',
             icon: 'error',
             timer: 1500
         })
@@ -28,9 +28,21 @@ function nuevoUsuario(evento){
             text: 'La edad debe ser mayor a 18',
             icon: 'error',
             timer: 1500
+            
         })
+     
         return false;
-    }  else {
+    } 
+    else if(captcha != "v4lid4 c4ptch4") {
+        Swal.fire({
+            title: 'Error!',
+            text: 'Captcha invalido !!',
+            icon: 'error',
+            timer: 1500
+            
+        })
+    }
+     else {
         alert("registro completado")
         this.submit();
       
@@ -39,10 +51,26 @@ function nuevoUsuario(evento){
     
 }
 
-
 let boton = document.getElementById("form")
 
 boton.addEventListener("submit", nuevoUsuario)
+
+function validarCaracteres() {
+   if(document.getElementById("nuevaPass").value.length < 8) {
+    document.getElementById("errorContra").className = "novalidado"; 
+    return false;
+}  else {document.getElementById("errorContra").className = "validado";
+    return true; 
+}
+}
+function verificarIgualdad() {
+    if(document.getElementById("verificacionPass").value != document.getElementById("nuevaPass").value) {
+     document.getElementById("errorVerificacion").className = "novalidado"; 
+     return false;
+ }  else {document.getElementById("errorVerificacion").className = "validado";
+     return true; 
+ }
+ }
 
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
